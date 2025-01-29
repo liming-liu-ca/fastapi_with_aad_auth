@@ -9,7 +9,7 @@ class TodoItemInCreate(BaseModel):
     name: str
 
     class Config:
-        schema_extra = {
+        json_schema_extra = {
             "example": {
                 "name": "Walk the dog"
             }
@@ -20,7 +20,7 @@ class TodoItemInResponse(BaseModel):
     item: TodoItem
 
     class Config:
-        schema_extra = {
+        json_schema_extra = {
             "example": {
                 "item": {
                     "id": 1,
@@ -36,7 +36,7 @@ class TodoItemsInList(BaseModel):
     items: List[TodoItem]
 
     class Config:
-        schema_extra = {
+        json_schema_extra = {
             "example": {
                 "items": [
                     {

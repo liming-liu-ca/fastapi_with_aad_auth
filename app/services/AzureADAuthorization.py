@@ -42,11 +42,8 @@ class AzureADAuthorization(OAuth2AuthorizationCodeBearer):
 
     async def __call__(self, request: Request) -> User:
         token: str = await super(AzureADAuthorization, self).__call__(request) or ''
-        print('******** token', token)
         self._validate_token_scopes(token)
         decoded_token = self._decode_token(token)
-        print('******** decoded_token', decoded_token)
-        print('*******', datetime.datetime.now())
         return self._get_user_from_token(decoded_token)
 
     @staticmethod
